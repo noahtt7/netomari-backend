@@ -1,11 +1,11 @@
-package com.noahtt7.service;
+package com.noahtt7.netomari_backend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
-import com.noahtt7.repository.BookingRepository;
-import com.noahtt7.model.*;
+import com.noahtt7.netomari_backend.model.*;
+import com.noahtt7.netomari_backend.repository.BookingRepository;
 
 @Service
 public class BookingService {

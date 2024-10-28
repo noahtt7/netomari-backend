@@ -1,4 +1,4 @@
-package com.noahtt7.model;
+package com.noahtt7.netomari_backend.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;

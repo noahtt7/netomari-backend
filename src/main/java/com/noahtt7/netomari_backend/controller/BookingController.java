@@ -1,9 +1,11 @@
-package com.noahtt7.controller;
+package com.noahtt7.netomari_backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.noahtt7.service.*;
-import com.noahtt7.model.*;
+
+import com.noahtt7.netomari_backend.model.*;
+import com.noahtt7.netomari_backend.service.*;
+
 import java.util.*;
 
 @RestController

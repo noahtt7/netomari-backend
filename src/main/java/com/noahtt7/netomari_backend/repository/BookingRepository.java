@@ -1,12 +1,13 @@
-package com.noahtt7.repository;
+package com.noahtt7.netomari_backend.repository;
 
-import com.noahtt7.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.noahtt7.netomari_backend.model.*;
 
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, String> {
 
-    UniqueStay findByStay(String id);
+    //UniqueStay findByStay(String id);
     
 }
