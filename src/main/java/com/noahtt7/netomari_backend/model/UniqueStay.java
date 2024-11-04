@@ -8,11 +8,12 @@ import jakarta.persistence.*;
 public class UniqueStay {
     
     @Id
-    private String id;
+    public String id;
 
-    private String name;
+    public String name;
 
-    public UniqueStay() {
-        
+    public UniqueStay(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 }
