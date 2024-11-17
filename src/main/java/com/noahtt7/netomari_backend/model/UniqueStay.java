@@ -12,6 +12,10 @@ public class UniqueStay {
 
     public String name;
 
+    public UniqueStay() {
+        
+    }
+
     public UniqueStay(String id, String name) {
         this.id = id;
         this.name = name;
