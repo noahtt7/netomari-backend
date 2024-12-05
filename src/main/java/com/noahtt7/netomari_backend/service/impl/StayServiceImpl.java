@@ -8,6 +8,7 @@ import com.noahtt7.netomari_backend.model.UniqueStay;
 import com.noahtt7.netomari_backend.repository.UniqueStayRepository;
 import com.noahtt7.netomari_backend.service.UniqueStayService;
 
+import exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -24,5 +25,15 @@ public class StayServiceImpl implements UniqueStayService {
 
         // Return saved uniquestay object back to client
         return UniqueStayMapper.mapToStayDto(savedStay);
+    }
+
+    @Override
+    public UniqueStayDto getStayById(int id) {
+        // Get an existing stay by its id
+        // If it doesn't exist, throw a ResourceNotFoundException
+        UniqueStay stay = uniqueStayRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id));
+
+        return UniqueStayMapper.mapToStayDto(stay);
     }
 }
