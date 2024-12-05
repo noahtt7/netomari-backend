@@ -13,7 +13,7 @@ public class UniqueStay {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public String id;
+    public int id;
 
     public String name;
 
@@ -21,7 +21,7 @@ public class UniqueStay {
         
     }
 
-    public UniqueStay(String id, String name) {
+    public UniqueStay(int id, String name) {
         this.id = id;
         this.name = name;
     }

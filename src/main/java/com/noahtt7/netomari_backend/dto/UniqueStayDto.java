@@ -10,6 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UniqueStayDto {
-    private String id;
+    private int id;
     private String name;
 }

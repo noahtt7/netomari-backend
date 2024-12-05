@@ -19,7 +19,7 @@ public class BookingController {
     private List<Booking> lst = List.of(new Booking("Id", "username"));
 
     private Map<String, UniqueStay> db = new HashMap<>() {{
-        put("1", new UniqueStay("1", "treehouse"));
+        put("1", new UniqueStay(1, "treehouse"));
     }};
     //private List<UniqueStay> stays_list = List.of(new UniqueStay("1", "treehouse"));
 
