@@ -1,5 +1,7 @@
 package com.noahtt7.netomari_backend.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,5 +35,11 @@ public class UniqueStayController {
     public ResponseEntity<UniqueStayDto> getUniqueStay(@PathVariable("id") int id) {
         UniqueStayDto getStay = uniqueStayService.getStayById(id);
         return ResponseEntity.ok(getStay);
+    }
+
+    @GetMapping("getall")
+    public ResponseEntity<List<UniqueStayDto>> getAllStays() {
+        List<UniqueStayDto> getStays = uniqueStayService.getAllStays();
+        return ResponseEntity.ok(getStays);
     }
 }

@@ -1,5 +1,8 @@
 package com.noahtt7.netomari_backend.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.noahtt7.netomari_backend.dto.UniqueStayDto;
@@ -35,5 +38,18 @@ public class StayServiceImpl implements UniqueStayService {
             .orElseThrow(() -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id));
 
         return UniqueStayMapper.mapToStayDto(stay);
+    }
+
+    @Override
+    public List<UniqueStayDto> getAllStays() {
+        List<UniqueStay> stays = uniqueStayRepository.findAll();
+        List<UniqueStayDto> stayDtoList = new ArrayList<>();
+
+        // Convert each UniqueStay into UniqueStayDto
+        // and add to satyDtoList
+        for (UniqueStay stay : stays) {
+            stayDtoList.add(UniqueStayMapper.mapToStayDto(stay));
+        }
+        return stayDtoList;
     }
 }
