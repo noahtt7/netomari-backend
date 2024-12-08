@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,10 +25,15 @@ public class UniqueStayController {
     private UniqueStayService uniqueStayService;
 
     // Build add stay REST API
-    @PostMapping
+    @PostMapping("/create") 
     public ResponseEntity<UniqueStayDto> createUniqueStay(@RequestBody UniqueStayDto uniqueStayDto) {
         UniqueStayDto savedStay = uniqueStayService.createUniqueStay(uniqueStayDto);
         return new ResponseEntity<>(savedStay, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/test")
+    public String testPost() {
+        return "POST recevied";
     }
 
     // Get stay REST API
@@ -41,5 +47,12 @@ public class UniqueStayController {
     public ResponseEntity<List<UniqueStayDto>> getAllStays() {
         List<UniqueStayDto> getStays = uniqueStayService.getAllStays();
         return ResponseEntity.ok(getStays);
+    }
+
+    // Update Stay REST API
+    @PutMapping("{id}")
+    public ResponseEntity<UniqueStayDto> updateStay(@PathVariable("id") int id, @RequestBody UniqueStayDto updatedStay) {
+        UniqueStayDto savedStayDto = uniqueStayService.updateStay(id, updatedStay);
+        return ResponseEntity.ok(savedStayDto);
     }
 }

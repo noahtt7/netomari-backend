@@ -10,4 +10,6 @@ public interface UniqueStayService {
     UniqueStayDto getStayById(int id);
 
     List<UniqueStayDto> getAllStays();
+
+    UniqueStayDto updateStay(int stayId, UniqueStayDto updatedStay);
 }

@@ -34,8 +34,9 @@ public class StayServiceImpl implements UniqueStayService {
     public UniqueStayDto getStayById(int id) {
         // Get an existing stay by its id
         // If it doesn't exist, throw a ResourceNotFoundException
-        UniqueStay stay = uniqueStayRepository.findById(id)
-            .orElseThrow(() -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id));
+        UniqueStay stay = uniqueStayRepository.findById(id).orElseThrow(
+            () -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id)
+        );
 
         return UniqueStayMapper.mapToStayDto(stay);
     }
@@ -51,5 +52,21 @@ public class StayServiceImpl implements UniqueStayService {
             stayDtoList.add(UniqueStayMapper.mapToStayDto(stay));
         }
         return stayDtoList;
+    }
+
+    @Override
+    public UniqueStayDto updateStay(int id, UniqueStayDto updatedStay) {
+        // Check if stay with the given id exists
+        UniqueStay stay = uniqueStayRepository.findById(id).orElseThrow(
+            () -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id)
+        );
+
+        // Update
+        stay.setId(updatedStay.getId());
+        stay.setName(updatedStay.getName());
+
+        UniqueStay updatedStayObj = uniqueStayRepository.save(stay);
+
+        return UniqueStayMapper.mapToStayDto(updatedStayObj);
     }
 }
