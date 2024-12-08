@@ -11,5 +11,7 @@ public interface UniqueStayService {
 
     List<UniqueStayDto> getAllStays();
 
-    UniqueStayDto updateStay(int stayId, UniqueStayDto updatedStay);
+    UniqueStayDto updateStay(int id, UniqueStayDto updatedStay);
+
+    void deleteStay(int id);
 }

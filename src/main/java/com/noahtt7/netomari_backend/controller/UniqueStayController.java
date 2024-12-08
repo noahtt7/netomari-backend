@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,5 +55,11 @@ public class UniqueStayController {
     public ResponseEntity<UniqueStayDto> updateStay(@PathVariable("id") int id, @RequestBody UniqueStayDto updatedStay) {
         UniqueStayDto savedStayDto = uniqueStayService.updateStay(id, updatedStay);
         return ResponseEntity.ok(savedStayDto);
+    }
+    // Delete Stay REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteStay(@PathVariable("id") int id) {
+        uniqueStayService.deleteStay(id);
+        return ResponseEntity.ok("Unique Stay deleted successfully.");
     }
 }

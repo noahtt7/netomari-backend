@@ -69,4 +69,13 @@ public class StayServiceImpl implements UniqueStayService {
 
         return UniqueStayMapper.mapToStayDto(updatedStayObj);
     }
+
+    @Override
+    public void deleteStay(int id) {
+        UniqueStay stay = uniqueStayRepository.findById(id).orElseThrow(
+            () -> new ResourceNotFoundException("Stay doesn't exist with given id: " + id)
+        );
+
+        uniqueStayRepository.deleteById(id);
+    }
 }
